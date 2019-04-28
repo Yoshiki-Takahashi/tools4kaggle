@@ -2,7 +2,6 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import category_encoders as ce
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 
 class TimeSeriesTargetEncoder(BaseEstimator, TransformerMixin):
     """
