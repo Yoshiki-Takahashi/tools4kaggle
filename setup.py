@@ -1,4 +1,4 @@
-from setuptools import setup, find_namespace_packages
+from setuptools import setup,find_packages,  find_namespace_packages
 import os
 import sys
 
@@ -20,7 +20,7 @@ install_requires = [
 
 setup(
     name='t4k',
-    version='0.0.1',
+    version='0.0.2',
     description='Tool Package for Kaggle',
     long_description=read('README.md'),
     author='Yoshiki Takahashi',
@@ -28,5 +28,5 @@ setup(
     install_requires=install_requires,
     url='',
     license=read('LICENSE'),
-    packages=find_namespace_packages()
+    packages=find_packages(exclude=["t4k.eda", "t4k.eda.*"])
 )
