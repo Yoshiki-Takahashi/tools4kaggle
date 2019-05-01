@@ -1,4 +1,4 @@
-from setuptools import setup,find_packages,  find_namespace_packages
+from setuptools import setup,find_packages
 import os
 import sys
 
@@ -10,11 +10,9 @@ def read(fname):
 
 install_requires = [
     'setuptools',
-    'numpy>=1.9.0',
+    'numpy',
     'sklearn',
     'pandas',
-    'seaborn',
-    'matplotlib',
     'category_encoders'
 ]
 
@@ -28,5 +26,5 @@ setup(
     install_requires=install_requires,
     url='',
     license=read('LICENSE'),
-    packages=find_packages(exclude=["t4k.eda", "t4k.eda.*"])
+    packages=find_packages()
 )
