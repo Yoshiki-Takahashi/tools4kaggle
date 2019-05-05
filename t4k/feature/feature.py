@@ -25,8 +25,10 @@ class Feature(metaclass=ABCMeta):
     def __init__(self):
         self.name = self.__class__.__name__
         self.train = pd.DataFrame()
+        self.y_train = pd.DataFrame()
         self.test = pd.DataFrame()
         self.train_path = Path(self.dir) / f'{self.name}_train.ftr'
+        self.y_train_path = Path(self.dir) / f'{self.name}_y_train.ftr'
         self.test_path = Path(self.dir) / f'{self.name}_test.ftr'
     
     def run(self):
@@ -44,4 +46,5 @@ class Feature(metaclass=ABCMeta):
     
     def save(self):
         self.train.to_feather(str(self.train_path))
+        self.y_train.to_feather(str(self.y_train_path))
         self.test.to_feather(str(self.test_path))
