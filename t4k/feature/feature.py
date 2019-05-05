@@ -48,3 +48,13 @@ class Feature(metaclass=ABCMeta):
         self.train.to_feather(str(self.train_path))
         self.y_train.to_feather(str(self.y_train_path))
         self.test.to_feather(str(self.test_path))
+
+
+def load_datasets(kernel_title, feats):
+    dfs = [pd.read_feather(f'../input/{kernel_title}/{f}_train.ftr') for f in feats]
+    X_train = pd.concat(dfs, axis=1)
+    first_f = feats[0]
+    y_train = pd.read_feather(f'../input/{kernel_title}/{first_f}_y_train.ftr')
+    dfs = [pd.read_feather(f'../input/{kernel_title}/{f}_test.ftr') for f in feats]
+    X_test = pd.concat(dfs, axis=1)
+    return X_train, y_train, X_test
